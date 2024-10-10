@@ -1,0 +1,39 @@
+* {
+  box-sizing: border-box;
+}
+
+div {
+  background: linear-gradient(to right, #72e4dedc, #da53c3); 
+}
+
+body {
+  background: linear-gradient(to right, #72e4dedc, #da53c3); /* hsla(305, 94%, 34%, 0.76);  Цвет бекграунда 304, 83%, 7%, 0.824 or 304, 78%, 25%, 0.733*/
+  background-color: #ebe8e857;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 400px;
+}
+
+.square {
+  width: 16px;
+  height: 16px;
+  background: #ebe8e857;
+  margin: 2px;
+  box-shadow: 0 0 2px rgba(255, 254, 254, 0.397);
+  transition: 3s ease;
+}
+
+.square:hover {
+  transition-duration: 0s;
+}

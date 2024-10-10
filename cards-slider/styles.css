@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap'); 
+
+* {
+  box-sizing: border-box;
+}
+div {
+  background-image: url('https://images.unsplash.com/photo-1618123069754-cd64c230a169?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3334&q=80');
+  background-position: center; /* center — фоновый рисунок расположен в центре оси x*/
+  background-size: cover;  /* размерка бэкграунда - фон изобр мостштабируется, так что бы полностью закрыть пространство элемента*/
+}
+body {
+  font-family: 'Muli', sans-serif;
+  overflow: hidden;
+  margin: 0;
+  background: linear-gradient(to right, #14a59edc, #5c044d); /* hsla(305, 94%, 34%, 0.76);  Цвет бекграунда 304, 83%, 7%, 0.824 or 304, 78%, 25%, 0.733*/
+  height: 100vh; /*Тело занимает 100% пространства*/
+  display: flex; /*Корректо выравниваем все бади*/
+  justify-content: center; /*центр что бы выровнить все слайды по центру*/
+  align-items: center; /*Для центра по вертикали*/
+}
+
+/*А здесь у нас находится корневой класс который заваричвает все слайды*/
+.container {
+  width: 100%; /*Ширина слайдов - 100% */
+  display: flex;
+  padding: 0 20px; /* Отступы слайдов от боков экрана 20 пикселей */ 
+}
+
+.slide{
+  height: 78vh; /*Задаю высоту для каждого слайда*/
+  border-radius: 20px; /* Закругления для наших слайдов*/
+  margin: 10px; /* Отступы друг от друго для сл */
+  cursor: pointer; /* При наведении на слайд - показывает что можно взаимодействовать*/
+  color: #fff; /* Цвет текста внутри слайда */
+  flex: 1; /*Каждый элемент растягивается пропорционально, но можно и по одному элем*/
+  background-size: cover;/* Для работы с текстом - Бэк текста*/
+  background-position: center; /*Позиция текста - тоже видишь центр*/
+  background-repeat: no-repeat; /* не повторять? */
+  position: relative;  /* Что бы для каждой позиции */
+  transition: all 475ms ease-in-out; /* ВОТ это крутая штука для анимации ОБРАТИ ВНИМАНИЕ*/
+}
+
+/*Теперь для каждого заголовка из слайдов - отдельно по h3 задаем */
+.slide h3{
+  position: absolute; /* Каждая позиция абсолют, но это к - чек выше  position: relative */
+  font-size: 24px; /* Размер по надписи */
+  bottom: 20px; /* Перенос текста сверху на низ - вот тут разобраться */
+  left: 20px; /*Отступы от левого края 20 пикселей ну видишь в общем */
+  margin: 0; /* Убираем дефолтные отступы */
+  opacity: 0; /* Но при этом все условно пропадает (Становится активным) и для этого
+  обрабатываем элементы и ниже задаем slide.active h3 */
+}
+
+/*Теперь работает с анимациями - всегда в основном 1 активный элемент, работаем над ним
+Прописываем в нужном нам class в html 'class active'*/
+.slide.active{
+  flex: 10; /* Увеличиваем нашу картинку*/
+}
+
+.slide.active h3 {
+  opacity: 1; /* Теперь текст на элементах виден снова*/
+  transition: opacity 0.3s ease-in 0.6s; /* 0,3с время анимации а 0,4с это время через которое появляется текст после открытия слайда при переходе*/
+}
